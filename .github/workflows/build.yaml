@@ -26,4 +26,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: smam_admin/portfolio-website:latest,smam_admin/portfolio-website:${{ github.run_number }}
+          tags: smam_admin/test-repo:latest
