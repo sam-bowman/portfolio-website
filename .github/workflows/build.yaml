@@ -20,7 +20,6 @@ jobs:
       - name: Build and Push to Gitea
         uses: docker/build-push-action@v5
         with:
-          context: .
           file: ./Dockerfile
           push: true
           tags: smam_admin/portfolio-website:latest
