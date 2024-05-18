@@ -19,7 +19,7 @@ jobs:
       - name: Login to Gitea
         uses: docker/login-action@v3
         with:
-          registry: ${{ secrets.GITEA_URL }}
+          registry: ${{ vars.GITEA_FQDN }}
           username: ${{ secrets.GITEA_USER }}
           password: ${{ secrets.GITEA_TOKEN }}
       - name: Build Docker Image
