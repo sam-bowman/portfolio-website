@@ -19,6 +19,6 @@ jobs:
           username: ${{ secrets.GITEA_USER }}
           password: ${{ secrets.GITEA_TOKEN }}
       - name: Build Docker Image
-        run: docker build -t ${{ secrets.GITEA_URL }}/smam_admin/portfolio-website:latest -t ${{ secrets.GITEA_URL }}/smam_admin/portfolio-website:${{ github.run_number }} .
+        run: docker build -t ${{ secrets.GITEA_URL }}/${{ secrets.REPO_PATH }}:latest -t ${{ secrets.GITEA_URL }}/${{ secrets.REPO_PATH }}:${{ github.run_number }} .
       - name: Push Docker Image
-        run: docker push ${{ secrets.GITEA_URL }}/smam_admin/portfolio-website
+        run: docker image push -a ${{ secrets.GITEA_URL }}/${{ secrets.REPO_PATH }}
