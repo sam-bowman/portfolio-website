@@ -26,4 +26,6 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: smam_admin/test-repo:latest
+          tags: | 
+            ${{ secrets.GITEA_URL }}/smam_admin/portfolio-website:latest
+            ${{ secrets.GITEA_URL }}/smam_admin/portfolio-website:${{ github.run_number }}
