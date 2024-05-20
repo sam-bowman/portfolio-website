@@ -13,15 +13,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Python
-        if: ${{ !endsWith(matrix.os, '-arm') }}
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.11"
-      - name: Setup Python (DEADSNAKES)
-        if: ${{ matrix.os == 'ubuntu-arm' }}
         uses: deadsnakes/action@v2.1.1
         with:
-          python-version: "3.11"
+          python-version: "3.12"
+      - uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
       - name: Login to Gitea
         uses: docker/login-action@v3
         with:
