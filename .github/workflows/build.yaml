@@ -36,7 +36,7 @@ jobs:
       - name: Pull Previous image for Cache
         run: docker pull ${{ vars.GITEA_FQDN }}/${{ vars.REPO_PATH }}:latest
       - name: Build Docker Image
-        run: docker build --cache-from ${{ vars.REPO_PATH }}:latest --build-arg BUILDKIT_INLINE_CACHE=1 -t ${{ vars.GITEA_FQDN }}/${{ vars.REPO_PATH }}:latest -t ${{ vars.GITEA_FQDN }}/${{ vars.REPO_PATH }}:${{ github.run_number }} .
+        run: docker build --cache-from ${{ vars.GITEA_FQDN }}/${{ vars.REPO_PATH }}:latest --build-arg BUILDKIT_INLINE_CACHE=1 -t ${{ vars.GITEA_FQDN }}/${{ vars.REPO_PATH }}:latest -t ${{ vars.GITEA_FQDN }}/${{ vars.REPO_PATH }}:${{ github.run_number }} .
       - name: Push Docker Image
         run: docker image push -a ${{ vars.GITEA_FQDN }}/${{ vars.REPO_PATH }}
       - name: Install KubeCTL
