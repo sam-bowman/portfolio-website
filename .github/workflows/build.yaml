@@ -12,10 +12,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Python Setup
-        uses: deadsnakes/action@v2.1.1
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: '3.11'
+          architecture: x64
+          cache: 'pip'
       - name: Login to Gitea
         uses: docker/login-action@v3
         with:
@@ -26,6 +28,8 @@ jobs:
         run: docker build -t ${{ vars.GITEA_FQDN }}/${{ vars.REPO_PATH }}:latest -t ${{ vars.GITEA_FQDN }}/${{ vars.REPO_PATH }}:${{ github.run_number }} .
       - name: Push Docker Image
         run: docker image push -a ${{ vars.GITEA_FQDN }}/${{ vars.REPO_PATH }}
+      - uses: azure/setup-kubectl@v3
+        id: install
       - name: Kubernetes context
         uses: Azure/k8s-set-context@v1
         with:
