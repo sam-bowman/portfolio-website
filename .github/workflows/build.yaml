@@ -26,3 +26,11 @@ jobs:
         run: docker build -t ${{ vars.GITEA_FQDN }}/${{ vars.REPO_PATH }}:latest -t ${{ vars.GITEA_FQDN }}/${{ vars.REPO_PATH }}:${{ github.run_number }} .
       - name: Push Docker Image
         run: docker image push -a ${{ vars.GITEA_FQDN }}/${{ vars.REPO_PATH }}
+      - name: Kubernetes context
+        uses: Azure/k8s-set-context@v1
+        with:
+          method: kubeconfig
+          kubeconfig: ${{ secrets.KUBE_CONFIG }}
+          namespace: portfolio-website
+      - name: Deploy
+        run: kubectl rollout restart deployment website -n portfolio-website
