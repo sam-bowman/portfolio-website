@@ -34,7 +34,7 @@ jobs:
           username: ${{ secrets.GITEA_USER }}
           password: ${{ secrets.GITEA_TOKEN }}
       - name: Build Docker Image
-        run: docker build -t ${{ vars.GITEA_FQDN }}/${{ vars.REPO_PATH }}:latest -t ${{ vars.GITEA_FQDN }}/${{ vars.REPO_PATH }}:${{ github.run_number }} .
+        run: docker build --build-arg BUILDKIT_INLINE_CACHE=1 -t ${{ vars.GITEA_FQDN }}/${{ vars.REPO_PATH }}:latest -t ${{ vars.GITEA_FQDN }}/${{ vars.REPO_PATH }}:${{ github.run_number }} .
       - name: Push Docker Image
         run: docker image push -a ${{ vars.GITEA_FQDN }}/${{ vars.REPO_PATH }}
       - name: Install KubeCTL
