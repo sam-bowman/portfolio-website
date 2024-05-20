@@ -2,9 +2,12 @@ from flask import Flask, url_for
 import pyvibe as pv
 
 def get_navbar(title=None):
+    navbar = pv.Navbar(title="Sam Bowman",logo="https://avatars.githubusercontent.com/u/64836476?v=4")
     if title:
-        return pv.Navbar(title=f"{title} - Sam Bowman",logo="https://avatars.githubusercontent.com/u/64836476?v=4")
-    return pv.Navbar(title="Sam Bowman",logo="https://avatars.githubusercontent.com/u/64836476?v=4")
+        navbar.title = f"{title} - Sam Bowman"
+    github_link=pv.NavbarlinkComponent("GitHub","https://github.com/sam-bowman")
+    navbar.add_component(github_link)
+    return navbar
 
 def get_sidebar():
     # Create sidebar

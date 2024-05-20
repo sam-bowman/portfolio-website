@@ -14,7 +14,6 @@ def index():
         sidebar=global_components.get_sidebar()
     )
     page.add_header("You're here too early! This page will be updated soon(tm)")
-
     return page.to_html()
 
 if __name__ == '__main__':
