@@ -1,20 +1,36 @@
-from flask import Flask, url_for
-import pyvibe as pv
-from pf_components import global_components
+from flask import Flask, url_for, render_template
 
 app = Flask(__name__)
 
+@app.route('/homepage')
+@app.route('/index')
 @app.route('/')
 def index():
-    page = pv.Page(
-        title='Home - SB',
-        description="Homepage",
-        navbar=global_components.get_navbar("Homepage"),
-        footer=None,
-        sidebar=global_components.get_sidebar()
-    )
-    page.add_header("You're here too early! This page will be updated soon(tm)")
-    return page.to_html()
+    return render_template("index.html",title="Home")
+
+@app.route('/cv')
+def cv():
+    return render_template("index.html",title="CV")
+
+@app.route('/contact')
+def contact():
+    return render_template("index.html",title="Contact")
+
+@app.route('/projects')
+def projects():
+    return render_template("index.html",title="Projects")
+
+@app.route('/proj1')
+def proj1():
+    return render_template("index.html",title="Project 1")
+
+@app.route('/proj2')
+def proj2():
+    return render_template("index.html",title="Project 2")
+
+@app.route('/proj3')
+def proj3():
+    return render_template("index.html",title="Project 3")
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)
