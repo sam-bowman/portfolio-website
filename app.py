@@ -32,5 +32,21 @@ def proj2():
 def proj3():
     return render_template("index.html",title="Project 3")
 
+@app.route('/tools')
+def projects():
+    return render_template("index.html",title="Tools")
+
+@app.route('/tool1')
+def proj1():
+    return render_template("index.html",title="Tool 1")
+
+@app.route('/tool2')
+def proj2():
+    return render_template("index.html",title="Tool 2")
+
+@app.route('/tool3')
+def proj3():
+    return render_template("index.html",title="Tool 3")
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

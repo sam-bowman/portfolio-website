@@ -40,6 +40,22 @@
                     </a>
                 </div>
             </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class={% if title == 'Tools' %}"navbar-item  is-selected"{% else %}"navbar-item"{% endif %} href="{{ url_for('tools') }}">
+                    Tools
+                </a>
+                <div class="navbar-dropdown">
+                    <a class={% if title == 'Tool 1' %}"navbar-item  is-selected"{% else %}"navbar-item"{% endif %} href="{{ url_for('tool1') }}">
+                        Tool 1
+                    </a>
+                    <a class={% if title == 'Tool 2' %}"navbar-item  is-selected"{% else %}"navbar-item"{% endif %} href="{{ url_for('tool2') }}">
+                        Tool 2
+                    </a>
+                    <a class={% if title == 'Tool 3' %}"navbar-item  is-selected"{% else %}"navbar-item"{% endif %} href="{{ url_for('tool3') }}">
+                        Tool 3
+                    </a>
+                </div>
+            </div>
         </div>
 
         <div class="navbar-end">
