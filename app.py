@@ -36,19 +36,19 @@ def proj3():
     return render_template("index.html",title="Project 3")
 
 @app.route('/tools')
-def projects():
+def tools():
     return render_template("index.html",title="Tools")
 
 @app.route('/tool1')
-def proj1():
+def tool1():
     return render_template("index.html",title="Tool 1")
 
 @app.route('/tool2')
-def proj2():
+def tool2():
     return render_template("index.html",title="Tool 2")
 
 @app.route('/tool3')
-def proj3():
+def tool3():
     return render_template("index.html",title="Tool 3")
 
 if __name__ == '__main__':
