@@ -1,7 +1,8 @@
 from flask import Flask, url_for, render_template
 from tools import generate_cv_files
 
-generate_cv_files()
+print("Generating CV Files")
+generate_cv_files.generate_cv_files()
 
 app = Flask(__name__)
 

@@ -1,12 +1,9 @@
 from markdown_pdf import MarkdownPdf,Section
 import markdown
 
-
-
 def generate_cv_files():
     pdf = MarkdownPdf(toc_level=2)
-    with open("CV.md") as f:#
-        md = f.read()
+    with open("./CV.md") as f:
         lines_joined = ""
         for line in f:
             lines_joined += f"{line}\n"
@@ -17,6 +14,9 @@ def generate_cv_files():
     pdf.meta["title"] = "Sam Bowman - DevOps Engineer - CV"
     pdf.meta["author"] = "Sam Bowman"
     pdf.save("./static/files/CV.pdf")
+
+    with open("./CV.md") as f:
+        md = f.read()
 
     html = markdown.markdown(md)
 
