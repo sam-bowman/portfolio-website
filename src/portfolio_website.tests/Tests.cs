@@ -1,10 +1,13 @@
-﻿namespace portfolio_website.tests;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.IO;
+using System;
+using portfolio_website.Pages;
 
-[TestClass]
-public sealed class Test1
+namespace portfolio_website.tests
 {
-    [TestMethod]
-    public void TestMethod1()
+    [TestClass]
+    public sealed class PortfolioWebsitesUnitTests
     {
+        
     }
 }

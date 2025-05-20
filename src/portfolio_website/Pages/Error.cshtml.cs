@@ -23,5 +23,9 @@ public class ErrorModel : PageModel
     {
         RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
     }
-}
 
+    public static string Sam()
+    {
+        return "Hello World!";
+    }
+}

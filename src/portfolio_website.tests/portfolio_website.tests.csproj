@@ -20,4 +20,13 @@
     <Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="portfolio_website" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\portfolio_website\portfolio_website.csproj" />
+  </ItemGroup>
+
+
 </Project>
